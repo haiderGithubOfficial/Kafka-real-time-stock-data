@@ -1,0 +1,25 @@
+{
+    "name": "kafka-real-time",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "start": "nodemon ./src/ws.js",
+      "dbDump": "node ./src/cron/dbDump.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^1.4.0",
+      "dotenv": "^16.0.3",
+      "lodash": "^4.17.21",
+      "moment-timezone": "^0.5.44",
+      "node-cron": "^3.0.3",
+      "pg": "^8.11.3",
+      "rss-parser": "^3.13.0",
+      "sequelize": "^6.35.2",
+      "ws": "^8.13.0"
+    }
+  }
+  
