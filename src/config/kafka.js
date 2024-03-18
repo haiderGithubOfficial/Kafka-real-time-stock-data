@@ -20,4 +20,5 @@ kafkaConnect();
 module.exports = {
     producer,
     consumer,
+    kafkaConnect
 }
