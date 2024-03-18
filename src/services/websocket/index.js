@@ -1,6 +1,6 @@
 require('dotenv').config();
 const WebSocket = require('ws');
-const candleProducer = require('../kafka/candleProducer');
+const feedProducer = require('../kafka/feedProducer');
 const moment = require('moment-timezone');
 const _ = require('lodash');
 
@@ -33,14 +33,11 @@ function connectWebSocket() {
                 const extractedData = {
                     market: jsonData.data.m,
                     symbol: jsonData.data.s,
-                    time: jsonData.data.t,
-                    opening: jsonData.data.o,
-                    high: jsonData.data.h,
-                    low: jsonData.data.l,
-                    close: jsonData.data.c,
+                    feed_time: jsonData.data.t,
+                    closing: jsonData.data.c,
                     volume: jsonData.data.lt.v
                 };
-                candleProducer(extractedData).catch(console.error);
+                feedProducer(extractedData).catch(console.error);
             }
         } catch (error) {
             console.log('Failed to parse JSON:', error);

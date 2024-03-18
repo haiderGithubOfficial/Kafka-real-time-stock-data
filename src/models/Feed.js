@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database.js');
 
-const Candle = sequelize.define('Candle', {
+const Feed = sequelize.define('Feed', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -15,10 +15,6 @@ const Candle = sequelize.define('Candle', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    opening: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-    },
     closing: {
         type: Sequelize.FLOAT,
         allowNull: false
@@ -27,26 +23,14 @@ const Candle = sequelize.define('Candle', {
         type: Sequelize.FLOAT,
         allowNull: false
     },
-    min: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-    },
-    max: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-    },
-    candletime: {
+    feed_time: {
         type: Sequelize.DATE,
         allowNull: false
-    },
-    candle_type: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
-
 }, {
+    // Additional model options
     timestamps: false,
-    tableName: 'Candles'
+    tableName: 'feed' // Replace with your actual table name
 });
 
-module.exports = Candle;
+module.exports = Feed;
