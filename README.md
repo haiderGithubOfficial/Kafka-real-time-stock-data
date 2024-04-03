@@ -1,3 +1,5 @@
+View this readme file in code mode not in preview mode
+
 **Step:1** 
 docker run -p 2181:2181 zookeeper
 
