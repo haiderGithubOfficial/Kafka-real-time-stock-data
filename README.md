@@ -21,3 +21,16 @@ docker run -p 9092:9092 \
 confluentinc/cp-kafka
 
 where <PRIVATE_IP> = your wifi IPv4 address
+
+**Step:3**
+Set Kafka Environment variables
+where KAFKA_PRIVATE_IP is same as your <PRIVATE_IP>
+where KAFKA_PORT is your port where kafka is running 
+
+KAFKA_PRIVATE_IP=172.17.0.1
+KAFKA_PORT=9092
+
+**Step:4**
+
+npm install
+npm start
