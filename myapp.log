@@ -1,0 +1,22 @@
+nohup: ignoring input
+postgres
+Start time:  4_5_2024-12_36
+sql connected
+db sync
+Connected to the server
+Cron Job Executed at: 4_5_2024-13_1
+No data found
+running 2024-04-05T08:36:01.166Z
+Disconnecting Kafka at: 4_5_2024-13_50
+Cron Job Executed at: 4_5_2024-13_58
+{"level":"WARN","timestamp":"2024-04-05T08:58:00.135Z","logger":"kafkajs","message":"KafkaJS v2.0.0 switched default partitioner. To retain the same partitioning behavior as in previous versions, create the producer with the option \"createPartitioner: Partitioners.LegacyPartitioner\". See the migration guide at https://kafka.js.org/docs/migration-guide-v2.0.0#producer-new-default-partitioner for details. Silence this warning by setting the environment variable \"KAFKAJS_NO_PARTITIONER_WARNING=1\""}
+{"level":"INFO","timestamp":"2024-04-05T08:58:00.159Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"feed-group"}
+{"level":"INFO","timestamp":"2024-04-05T08:58:03.184Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"feed-group","memberId":"kafka-trading-view-077793bb-7c4f-437e-97f3-69b1bf782764","leaderId":"kafka-trading-view-077793bb-7c4f-437e-97f3-69b1bf782764","isLeader":true,"memberAssignment":{"feed-topic":[0]},"groupProtocol":"RoundRobinAssigner","duration":3024}
+Cron Job Executed at: 4_5_2024-14_1
+No data found
+running 2024-04-05T09:36:01.166Z
+Disconnecting Kafka at: 4_5_2024-14_50
+Kafka Producer disconnected successfully.
+{"level":"INFO","timestamp":"2024-04-05T09:50:04.412Z","logger":"kafkajs","message":"[Runner] consumer not running, exiting","groupId":"feed-group","memberId":"kafka-trading-view-077793bb-7c4f-437e-97f3-69b1bf782764"}
+{"level":"INFO","timestamp":"2024-04-05T09:50:04.417Z","logger":"kafkajs","message":"[Consumer] Stopped","groupId":"feed-group"}
+Kafka Consumer disconnected successfully.

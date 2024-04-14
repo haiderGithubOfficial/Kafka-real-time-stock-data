@@ -31,6 +31,10 @@ sequelize.sync().then(() => {
     console.error('Unable to sync:', error);
 });
 
+setInterval(() => {
+    console.log('running', new Date().toISOString());
+}, 3600000)
+
 module.exports = sequelize;
 
 

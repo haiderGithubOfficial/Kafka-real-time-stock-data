@@ -30,7 +30,13 @@ const Feed = sequelize.define('Feed', {
 }, {
     // Additional model options
     timestamps: false,
-    tableName: 'feed' // Replace with your actual table name
+    tableName: 'feed',
+    indexes: [
+        {
+            unique: true,
+            fields: ['market', 'symbol', 'closing', 'volume', 'feed_time']
+        }
+    ]
 });
 
 module.exports = Feed;

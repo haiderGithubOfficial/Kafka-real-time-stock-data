@@ -1,6 +1,6 @@
 require('../config/database');
 const _ = require('lodash');
-const { Op } = require('sequelize');
+const { Op, literal } = require('sequelize');
 const cron = require('node-cron');
 const Candle = require('../models/Candle');
 const Feed = require('../models/Feed');
@@ -8,21 +8,28 @@ const moment = require('moment-timezone');
 
 moment.tz.setDefault('Asia/Karachi');
 
-cron.schedule('0 16 * * 1-5', async function () {
+cron.schedule('3 16 * * 1-5', async function () {
     try {
         console.log('Cron Job Executed at:', moment().format('M_D_YYYY-H_m'));
-        const targetDate = moment().subtract(7, 'hours').format('YYYY-MM-DD HH:mm:ss');
-        const endDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        const targetDate = moment().subtract(8, 'hours').startOf('hour').format('YYYY-MM-DD HH:00:00');
+        const endDate = moment().startOf('hour').format('YYYY-MM-DD HH:00:00');
 
         const data = await Feed.findAll({
-            raw: true,
+            attributes: [
+                [literal('DISTINCT ON (market, symbol, closing, volume, feed_time) market'), 'market'],
+                'symbol',
+                'closing',
+                'volume',
+                'feed_time'
+            ],
             where: {
                 feed_time: {
                     [Op.gte]: targetDate, // Greater than or equal to the target start time
-                    [Op.lt]: endDate // But less than the end time (exclusive)
-                }
+                    [Op.lt]: endDate // Less than the end date (exclusive)
+                },
             },
-            order: [['feed_time', 'ASC']]
+            order: [['feed_time', 'ASC']],
+            raw: true,
         });
         if (data.length === 0) {
             console.log('No data found');
